@@ -6,13 +6,17 @@ plot3 <- function(){
 
 	png("plot3.png", bg ="transparent")
 	
+	plot_3(d)
+	
+	dev.off()
+}
+
+plot_3 <- function(d, bty = "o"){
 	plot(1:nrow(d), d$Sub_metering_1, xaxt='n', type="l", xlab="", 
 		ylab="Energy sub metering")
 	points(1:nrow(d), d$Sub_metering_2,  col="red", type = "l")
 	points(1:nrow(d), d$Sub_metering_3,  col="blue", type="l")
 	axis(1, at = c(1, which(d$Date=="2/2/2007")[1], nrow(d)), 
 		labels=c("Thu", "Fri", "Sat"), tick=T)
-	legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=c(1, 1, 1), col = c("black", "red", "blue"))
-	dev.off()
-	
+	legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=c(1, 1, 1), col = c("black", "red", "blue"), bty=bty)
 }

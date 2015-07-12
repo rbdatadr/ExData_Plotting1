@@ -1,5 +1,5 @@
-library(sqldf)
 plot1 <- function(){
+	library(sqldf)
 
 	d <- read.csv.sql("data.txt", 
 		sql = "select * from file where Date='1/2/2007' OR Date='2/2/2007'", 
