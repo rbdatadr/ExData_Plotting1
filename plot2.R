@@ -4,12 +4,8 @@ plot2 <- function(){
 	d <- read.csv.sql("data.txt", 
 		sql = "select * from file where Date='1/2/2007' OR Date='2/2/2007'", 
 		header = T, sep=";")	
-	
-	if (!file.exists("plots")){
-		dir.create("plots")
-    }
 
-	png("plots/plot2.png", bg ="transparent")
+	png("plot2.png", bg ="transparent")
 	
 	plot(1:nrow(d), d$Global_active_power, xaxt='n', type="l", xlab="", 
 		ylab="Global Active Power (kilowatts)")
